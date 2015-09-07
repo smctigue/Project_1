@@ -9,6 +9,10 @@ var UserSchema = new Schema ({
 		type: String,
 		required: true	
 	},
+	username: {
+		type: String,
+		required: true
+	},
 	passwordDigest: {
 		type: String,
 		required: true
@@ -19,6 +23,26 @@ var UserSchema = new Schema ({
 	},
 	about: {
 		type: String
+	}
+})
+
+var QuoteSchema = new Schema ({
+	quote: {
+		type: String,
+		required: true
+	},
+	kind: {
+		type: String,
+	},
+	author: {
+		type: String,
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now()
+	},
+	Private: {
+		type: Boolean
 	}
 })
 

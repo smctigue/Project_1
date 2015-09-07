@@ -28,6 +28,10 @@ app.use(
 );
 
 // Sign In/Out
+app.get("/signin", function (req, res) {
+  res.sendFile(path.join(views, "signin.html"));
+});
+
 app.use(function (req, res, next) {
   req.login = function (user) {
     req.session.userId = user._id;
@@ -77,13 +81,9 @@ app.get("/profile", function userShow(req, res) {
     if (user === null) {
       res.redirect("/signup")
     } else {
-      res.send("Hello " + user.email);
+      res.send("Hello " + user.email + "!");
     }
   })
-});
-
-app.get("/signin", function (req, res) {
-  res.sendFile(path.join(views, "signin.html"));
 });
 
 
