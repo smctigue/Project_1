@@ -12,6 +12,8 @@
     "bcrypt": "^0.8.5",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "keygenerator": "^1.0.4",
     "mongoose": "^4.1.5",
     "nodemon": "^1.4.1",
     "underscore": "^1.8.3"

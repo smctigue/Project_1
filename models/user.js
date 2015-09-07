@@ -9,30 +9,28 @@ var UserSchema = new Schema ({
 		type: String,
 		required: true	
 	},
-	username: {
-		type: String,
-		required: true
-	},
 	passwordDigest: {
 		type: String,
 		required: true
 	},
+	createdAt: {
+		type: Date,
+		default: Date.now()
+	},
 	about: {
 		type: String
-		required: false
 	}
 })
 
 UserSchema.statics.createSecure = function (email, password, cb) {
 	var _this = this;
-	bcrypt.genSalt (function (err, salt) {
-		bcrypt.hash(password, salt, function (err, hash) {
-			var user = {
-				email: email,
-				passwordDigest: hash
-			};
-			_this.create(user, cb);
-		});
+	bcrypt.hash(password, 10, function (err, hash) {
+		var user = {
+			email: email,
+			passwordDigest: hash,
+			createdAt: Date.now()
+		};
+		_this.create(user, cb);
 	});
 };
 
