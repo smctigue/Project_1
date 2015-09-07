@@ -15,8 +15,11 @@ var UserSchema = new Schema ({
 		type: String,
 		required: true
 	},
-	about me: {
+	about: {
 		type: String
 		required: false
 	}
 })
+
+var User = mongoose.model('User', UserSchema);
+module.exports = User;

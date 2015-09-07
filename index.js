@@ -1,23 +1,32 @@
 var express = require('express'),
-		bodyParser = require('body-parser'),
-		app = express();
+	app = express();
+	bodyParser = require('body-parser'),
+	path = require("path"),
+  _ = require("underscore"),
+  views = path.join(process.cwd(), "views/");
 
-		app.use(bodyParser.urlencoded({extended: true}))
+app.use("/static", express.static("public"));
+app.use("/vendor", express.static("bower_components"));
 
-		app.get("/signup", function (req, res) {
-			res.send('Hello World');
-		});
-
-
-
-
+app.use(bodyParser.urlencoded({extended: true}))
 
 
+app.get("/", function(req, res) {
+  res.sendFile(path.join(views + "index.html"));
+});
+
+app.get("/signup", function (req, res) {
+	res.send('Hello World');
+});
 
 
 
 
 
-	var listener = app.listen(3000, function () {
-		console.log("Yo! Cheggout port " + listener.address().port);
-	});
+
+
+
+
+var listener = app.listen(3000, function () {
+	console.log("Yo! Cheggout port " + listener.address().port);
+});
