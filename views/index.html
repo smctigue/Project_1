@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Project 1</title>
+	<title>Quotes</title>
 
 	 	<meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -22,7 +22,46 @@
 </head>
 <body>
 
-<h1>Hello World</h1>
+<!-- Sign Up/In Buttons -->
+<div class="jumbotron vertical-center">
+  <div id="sign-btn">
+    <h1 class="home-title">QuoteS</h1>
+      <button type="button" class="btn btn-primary" id="signup-btn">Sign Up</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Sign In</button>
+  </div>
+</div>
+<!-- Modal - Sign In -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="LogInModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="form-group log-in-modal">
+            <label for="message-text" class="control-label" id="log-in-title">Log In</label>
+          <form class="form-horizontal">
+          <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+              <div class="controls">
+              <input type="text" id="inputEmail" placeholder="Email">
+              </div>
+          </div>
+          <div class="control-group">
+              <label class="control-label" for="inputPassword">Password</label>
+              <div class="controls">
+              <input type="password" id="inputPassword" placeholder="Password">
+              </div>
+          </div>
+          <div class="control-group">
+              <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox"> Remember
+              </label>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+          </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

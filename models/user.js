@@ -11,7 +11,6 @@ var UserSchema = new Schema ({
 	},
 	username: {
 		type: String,
-		required: true
 	},
 	passwordDigest: {
 		type: String,
@@ -26,6 +25,7 @@ var UserSchema = new Schema ({
 	}
 })
 
+// Quotes model
 var QuoteSchema = new Schema ({
 	quote: {
 		type: String,
@@ -41,7 +41,7 @@ var QuoteSchema = new Schema ({
 		type: Date,
 		default: Date.now()
 	},
-	Private: {
+	private: {
 		type: Boolean
 	}
 })
