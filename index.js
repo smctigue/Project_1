@@ -64,6 +64,8 @@ app.post(["/signup"], function signup(req, res) {
   		res.redirect("/signup");
   	} else {
       req.login(user);
+      // console.log(email + " registered.");
+      // res.cookie("LUE", 42);
       res.redirect("/profile"); 
   	}
   });
@@ -108,6 +110,7 @@ app.get("/profile", function userShow(req, res) {
 
 app.delete(["/sessions", "/logout"], function(req, res) {
   req.logout();
+  // res.clearCookie("LUE");
   res.redirect("/");
 });
 

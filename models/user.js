@@ -3,28 +3,6 @@ var mongoose = require('mongoose'),
 	bcrypt = require('bcrypt');
 
 
-// USER model
-var UserSchema = new Schema ({
-	email: {
-		type: String,
-		required: true	
-	},
-	username: {
-		type: String,
-	},
-	passwordDigest: {
-		type: String,
-		required: true
-	},
-	createdAt: {
-		type: Date,
-		default: Date.now()
-	},
-	about: {
-		type: String
-	}
-})
-
 // Quotes model
 var QuoteSchema = new Schema ({
 	quote: {
@@ -44,7 +22,33 @@ var QuoteSchema = new Schema ({
 	private: {
 		type: Boolean
 	}
-})
+});
+
+// USER model
+var UserSchema = new Schema ({
+	email: {
+		type: String,
+		required: true	
+	},
+	username: {
+		type: String,
+	},
+	passwordDigest: {
+		type: String,
+		required: true
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now()
+	},
+	about: {
+		type: String
+	},
+	quotes: 
+		[QuoteSchema]
+});
+
+
 
 UserSchema.statics.createSecure = function (email, password, cb) {
 	var _this = this;
@@ -75,4 +79,6 @@ UserSchema.methods.checkPassword = function (password) {
 };
 
 var User = mongoose.model('User', UserSchema);
+var Quote = mongoose.model('Quote', QuoteSchema);
+
 module.exports = User;
