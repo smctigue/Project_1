@@ -60,7 +60,6 @@ app.get("/signup", function(req, res) {
 });
 
 app.post(["/signup"], function signup(req, res) {
-	console.log("In index.js");
   var user = req.body.user;
   var email = user.email;
   var password = user.password;
@@ -148,7 +147,6 @@ app.post("/users", function(req, res)
             kind: req.body.kind
         };
         quote.quotes.push(newQuote);
-        // Save the book after the comment is added.
         quote.save(function(err, success) {
             if(err) {return console.log(err);}
             //console.log("Comment added Successfully");
