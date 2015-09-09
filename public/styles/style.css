@@ -55,3 +55,19 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+/*HOME*/
+#new-quote-form {
+  margin-left: 35%;
+  margin-right: 35%;
+}
+#kind-select {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.quote-border {
+    background: rgba(255,255,255,0.30);
+    margin: 0 auto;
+    width: 75%;
+    height: 75%;
+}
