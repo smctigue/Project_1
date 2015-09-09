@@ -1,6 +1,22 @@
+.bg {
+  background: url('/static/styles/imgs/back.png') no-repeat center center;
+  position: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+    padding: 3px;
+    margin: -1px;
+}
+.logout-btn {
+  margin-top: 5px;
+}
 #sign-btn {
 	text-align: center;
-	margin: 0 auto;
+    text-align: center;
+    margin-top: 13%;
 }
 .log-in-modal {
 	text-align: center;
@@ -16,9 +32,26 @@
   align-items: center;
 }
 .jumbotron {
-    height: 400px;
-    color: gray;
+    height: 100%;
+    color: white;
     text-shadow: #444 0 3px 3px;
     background: transparent;
-    border: 1px solid black;
+    margin: 0 auto;
+}
+.transparent-box {
+  width: 75%;
+  height: 400px;
+  background: rgba(0,0,0,0.35); 
+}
+.modal-header-primary {
+  color:#fff;
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color: #4A6EB8;
+   -webkit-border-top-left-radius: 5px;
+   -webkit-border-top-right-radius: 5px;
+   -moz-border-radius-topleft: 5px;
+   -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

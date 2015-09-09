@@ -1,66 +1,114 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Quotes</title>
+  <title>Quotes</title>
 
-	 	<meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- jQuery -->
-    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="/vendor/jquery/dist/jquery.min.js"></script>
 
-    <!-- Underscore -->
-    <script src="/vendor/underscore/underscore-min.js"></script>
+  <!-- Underscore -->
+  <script src="/vendor/underscore/underscore-min.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
-    <script src="/static/js/app.js"></script>
+  <!-- Bootstrap -->
+  <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+  <script src="/static/js/app.js"></script>
 </head>
+
 <body>
 
-<!-- Sign Up/In Buttons -->
-<div class="jumbotron vertical-center">
-  <div id="sign-btn">
-    <h1 class="home-title">QuoteS</h1>
-      <button type="button" class="btn btn-primary" id="signup-btn">Sign Up</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Sign In</button>
-  </div>
-</div>
-<!-- Modal - Sign In -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="LogInModal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-        <div class="form-group log-in-modal">
-            <label for="message-text" class="control-label" id="log-in-title">Log In</label>
-          <form class="form-horizontal">
-          <div class="control-group">
-              <label class="control-label" for="inputEmail">Email</label>
-              <div class="controls">
-              <input type="text" id="inputEmail" placeholder="Email">
-              </div>
-          </div>
-          <div class="control-group">
-              <div class="controls">
-              <input type="password" id="inputPassword" placeholder="Password">
-              </div>
-          </div>
-          <div class="control-group">
-              <div class="controls">
-              <label class="checkbox">
-                <input type="checkbox"> Remember
-              </label>
-              <button type="submit" class="btn btn-primary" id="modalSignIn">Sign in</button>
-              </div>
-          </div>
-          </form>
+  <div class="bg">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">QuoteS</a>
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="/home">Home</a></li>
+          <li role="presentation"><a href="/profile">Profile</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Sign Up&In -->
+    <div class="jumbotron vertical-center">
+      <div class="container transparent-box">
+        <div id="sign-btn">
+          <h1 class="home-title">QuoteS</h1>
+          <button type="button" class="btn btn-primary" id="signup-btn">Sign Up</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-signin-modal-lg">Sign In</button>
         </div>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Sign Up Modal-->
+<!--   <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-header-primary">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="editModalLabel">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="control-group">
+              <div class="controls">
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email">
+              </div>
+            </div>
+            <div class="controls">
+              <input type="username" id="inputUsername" class="form-control" placeholder="Username">
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Modal - Sign In -->
+  <div class="modal fade bs-signin-modal-lg" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="LogInModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal-header-primary">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="editModalLabel">Log In</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="control-group">
+              <div class="controls">
+                <input type="text" id="inputEmail" class="form-control" placeholder="Email">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="modalSignIn">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
+
 </html>
