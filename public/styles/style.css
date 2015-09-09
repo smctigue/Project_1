@@ -57,9 +57,20 @@
 }
 
 /*HOME*/
+.quotes-title {
+    position: absolute;
+    margin-top: -100px;
+    left: 86px;
+    font-size: 50px;
+    font-family: Helvetic;
+}
 #new-quote-form {
   margin-left: 35%;
   margin-right: 35%;
+}
+.form-control:focus {
+    border-color: #FF0000;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
 #kind-select {
   margin-top: 3px;
@@ -70,4 +81,18 @@
     margin: 0 auto;
     width: 75%;
     height: 75%;
+}
+
+/* SIGNUP */
+.signup {
+  text-align: center;
+}
+#btn-register {
+  margin-top: 5px;
+}
+.email-form {
+  margin-bottom: 5px;
+}
+.signup {
+  font-family: Helvetic;
 }

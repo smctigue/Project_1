@@ -60,6 +60,7 @@ app.get("/signup", function(req, res) {
 });
 
 app.post(["/signup"], function signup(req, res) {
+	console.log("In index.js");
   var user = req.body.user;
   var email = user.email;
   var password = user.password;
@@ -75,21 +76,20 @@ app.post(["/signup"], function signup(req, res) {
 });
 
 // Sign In
-app.get("/signin", function(req, res) {
-  res.sendFile(path.join(views, "signin.html"));
+app.get("/login", function(req, res) {
+  res.sendFile(path.join(views, "login.html"));
 });
 
-app.post(["/sessions", "/signin"], function login(req, res) {
-  var user = req.body.user;
-  var email = user.email;
-  var password = user.password;
-  db.User.authenticate(email, password, function(err, user) {
+app.post(["/sessions", "/login"], function login(req, res) {
+  var email = req.body.email;
+  var password = req.body.password;
+
+  db.User.authenticate(email, password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/");
     } else {
       req.login(user);
-      // res.cookie("guid", user._id, { signed: true });
       res.redirect("/profile");
     }
   });
@@ -122,10 +122,11 @@ app.delete(["/sessions", "/logout"], function(req, res) {
   res.redirect("/");
 });
 
-// QUOTES JSON
+// QUOTES
 app.get("/users", function(req, res) {
-  db.Quote.find({},
-    function(err, quotes) {
+  db.User.find({},
+    function (err, quotes) {
+
     	if (err) {
     		res.send(err);
     	}
@@ -133,15 +134,27 @@ app.get("/users", function(req, res) {
     });
 });
 
-app.post("/users", function(req, res) {
-  var newQuote = req.body;
-  db.Quote.create(newQuote, function(err, quote) {
-    if (err) {
-      console.log(err);
-      return res.sendStatus(400);
-    }
-    res.send(quote);
-  })
+app.post("/users", function(req, res)
+{
+    console.log(req.body);
+    db.User.findOne({_id: req.body._id}, function (err, quotes) {
+        if(err) 
+        {
+            return console.log(err);
+        }
+        var newQuote = {
+            quote: req.body.quotes,
+            author: req.body.author,
+            kind: req.body.kind
+        };
+        quote.quotes.push(newQuote);
+        // Save the book after the comment is added.
+        quote.save(function(err, success) {
+            if(err) {return console.log(err);}
+            //console.log("Comment added Successfully");
+            res.send(newQuote);
+        });
+    })
 });
 
 app.delete("/users/:id", function(req, res) {
